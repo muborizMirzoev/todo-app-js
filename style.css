@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: cornsilk;
+}
+
+h1 {
+    text-align: center;
+    font-size: 6rem;
+    margin: 4rem 0;
+    color: rgba(52, 93, 52, 0.75);
+}
+
+.todo-app {
+    margin: 0 auto;
+    max-width: 400px;
+    font-size: 1.1rem;
+    background-color: white;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+#add-todo {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: none;
+    font-size: 1.2rem;
+}
+
+#todos {
+    width: 100%;
+    list-style: none;
+}
+
+.todo__item {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+.todo__item button {
+    text-align: left;
+    border: none;
+    background-color: transparent;
+}
+
+.todo__item.new-item {
+    opacity: 0;
+    animation: new-item-animation .4s linear forwards;
+}
+
+@keyframes new-item-animation {
+    from {
+        opacity: 0;
+        transform: translateY(-400px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.todo__item.removed-item {
+    animation: removed-item-animation .5s cubic-bezier(.65, -0.02, .72, .29);
+}
+
+@keyframes removed-item-animation {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateX(50px);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateX(-800px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-800px);
+    }
+}
+
+#todos .completed {
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, .5);;
+}
+
+.todo__info {
+    text-align: center;
+    margin: 4rem 0;
+    font-size: .8rem;
+    color: rgba(0, 0, 0, .7);
+}
+
+@media only screen and (max-width: 485px) {
+    h1 {
+        font-size: 3.3rem;
+        margin: 2rem 0;
+    }
+}
