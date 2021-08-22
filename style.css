@@ -35,21 +35,37 @@ h1 {
 }
 
 #todos {
-    width: 100%;
+    max-width: 100%px;
     list-style: none;
 }
 
 .todo__item {
-    padding: 1rem 1.5rem;
+    position: relative;
+    text-align: left;
+    padding: 1.4rem 2.2rem 1rem 1.5rem;
+    word-wrap: break-word;
     font-size: 1rem;
     cursor: pointer;
     border-top: 1px solid rgba(0, 0, 0, .1);
 }
 
 .todo__item button {
-    text-align: left;
     border: none;
+    font-size: 1rem;
+    cursor: pointer;
     background-color: transparent;
+}
+
+.edit{
+    position: absolute;
+    top: 5px;
+    right: 37px;
+}
+
+.delete{
+    position: absolute;
+    top: 5px;
+    right: 9px;
 }
 
 .todo__item.new-item {
