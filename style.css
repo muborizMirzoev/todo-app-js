@@ -35,18 +35,33 @@ h1 {
 }
 
 #todos {
-    max-width: 100%px;
+    max-width: 100%;
     list-style: none;
 }
 
 .todo__item {
     position: relative;
-    text-align: left;
+    display: flex;
+    align-items: center;
     padding: 1.4rem 2.2rem 1rem 1.5rem;
     word-wrap: break-word;
     font-size: 1rem;
     cursor: pointer;
     border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+.todo__item input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+.todo__item input[type="checkbox"]:checked + .todo__text{
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, .5);
+}
+
+.todo__text {
+    margin-left: 0.7rem;
 }
 
 .todo__item button {
@@ -111,10 +126,10 @@ h1 {
     }
 }
 
-#todos .completed {
-    text-decoration: line-through;
-    color: rgba(0, 0, 0, .5);;
-}
+/*#todos .completed {*/
+/*    text-decoration: line-through;*/
+/*    color: rgba(0, 0, 0, .5);*/
+/*}*/
 
 .todo__info {
     text-align: center;

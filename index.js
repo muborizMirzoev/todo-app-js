@@ -15,13 +15,13 @@ function addNewTodo(data = {}) {
    li.classList.add('new-item')
 
    li.innerHTML = `
+      <input type="checkbox" class="completed" ${data.status ? 'checked' : ''}>
       <p class="todo__text" contentEditable="false">${input.value || data.text} </p>
       <button class="edit" type="button"><i class="fas fa-edit"></i></button>
       <button class="delete" type="button"><i class="fas fa-trash-alt"></i></button>
    `
    todos.append(li);
    updateLocalStorage();
-   data.status ? li.classList.add('completed') : '';
 
    li.addEventListener('click', (e) => {
       const target = e.target;
@@ -43,10 +43,8 @@ function addNewTodo(data = {}) {
       } else if (target.closest('.delete')) {
          deleteTodo(e);
          updateLocalStorage();
-      } else {
-         // li.classList.toggle('completed');
-         // updateLocalStorage()
       }
+      updateLocalStorage();
    });
 
    li.addEventListener('contextmenu', deleteTodo);
@@ -68,11 +66,12 @@ form.addEventListener('submit', (e) => {
 
 function updateLocalStorage() {
    const todoItems = document.querySelectorAll('.todo__item');
+
    const todos = [];
    todoItems.forEach(item => {
       todos.push({
          text: item.innerText,
-         status: item.classList.contains('completed')
+         status: item.querySelector('.completed').checked,
       });
    });
    localStorage.setItem('todos', JSON.stringify(todos));
